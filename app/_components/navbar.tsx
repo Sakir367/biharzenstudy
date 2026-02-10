@@ -16,16 +16,16 @@ const Navbar = () => {
 
   return (
     <div className="w-full bg-[#3db7c7]">
-      <div className="max-w-390 w-[95%] mx-auto py-4 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+      <div className="max-w-390 w-[95%] mx-auto py-4 flex flex-col xl:flex-row lg:justify-between lg:items-center gap-4">
 
         {/* Logo */}
-        <p className="text-[20px] md:text-[24px] font-bold text-white text-center md:text-left">
+        <p className="text-[20px] text-nowrap md:text-[24px] font-bold text-white text-center md:text-left">
           BiharZen Study
         </p>
  
 
         {/* Select Section */}
-        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+        <div className="flex flex-col xl:flex-row gap-3 w-full lg:w-auto">
            <div className="overflow-hidden w-full">
   <p
     className="marquee-text text-[18px] md:text-[28px] text-center font-bold text-white"
@@ -38,7 +38,7 @@ const Navbar = () => {
 </div>
 
           <Select  onValueChange={(value) => router.push(value)}>
-           <SelectTrigger className="w-full  text-white data-placeholder:text-white">
+           <SelectTrigger className="w-full lg:w-auto  text-white data-placeholder:text-white">
   <SelectValue placeholder="Question Papers" />
 </SelectTrigger>
 
@@ -51,7 +51,7 @@ const Navbar = () => {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-full sm:w-40 text-white">
+            <SelectTrigger className="w-full lg:w-auto text-white">
               <SelectValue placeholder="Notes & Solutions" />
             </SelectTrigger>
             <SelectContent className="bg-white">
@@ -63,7 +63,7 @@ const Navbar = () => {
           </Select>
 
           <Select>
-            <SelectTrigger className="w-full sm:w-40 text-white">
+            <SelectTrigger className="w-full lg:w-auto text-white">
               <SelectValue placeholder="MCQ" />
             </SelectTrigger>
             <SelectContent className="bg-white">

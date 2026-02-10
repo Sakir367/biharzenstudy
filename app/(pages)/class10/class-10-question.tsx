@@ -1,105 +1,155 @@
+"use client"; // ✅ Required for Next.js Client Component
 
-const subjectname = [
-    { id: 1, subnectname: "English", class10:[
-    { id: 1, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 2, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 3, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 4, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 5, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 6, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 7, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 8, classname: "Class-10", subject: "History", year: "2025" },
-    { id: 9, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 10, classname: "Class-10", subject: "English", year: "2025" },
-] },
-    { id: 2, subnectname: "Mathematics",class10:[
-    { id: 1, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 2, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 3, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 4, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 5, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 6, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 7, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 8, classname: "Class-10", subject: "History", year: "2025" },
-    { id: 9, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 10, classname: "Class-10", subject: "English", year: "2025" },
-] },
-    { id: 3, subnectname: "Science",class10:[
-    { id: 1, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 2, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 3, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 4, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 5, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 6, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 7, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 8, classname: "Class-10", subject: "History", year: "2025" },
-    { id: 9, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 10, classname: "Class-10", subject: "English", year: "2025" },
-] },
-    { id: 4, subnectname: "Social Science",class10:[
-    { id: 1, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 2, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 3, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 4, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 5, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 6, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 7, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 8, classname: "Class-10", subject: "History", year: "2025" },
-    { id: 9, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 10, classname: "Class-10", subject: "English", year: "2025" },
-] },
-    { id: 5, subnectname: "Hindi",class10:[
-    { id: 1, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 2, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 3, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 4, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 5, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 6, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 7, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 8, classname: "Class-10", subject: "History", year: "2025" },
-    { id: 9, classname: "Class-10", subject: "English", year: "2025" },
-    { id: 10, classname: "Class-10", subject: "English", year: "2025" },
-] },
-]
+import { useEffect, useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+import { SearchIcon } from "lucide-react";
 
 const Class10Question = () => {
-    return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-390 w-[90%] mx-auto ">
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-            {subjectname.map((item) => (
-             <div className="flex flex-col gap-5 bg-white p-5">
-                   <div key={item.id} className=' flex flex-col gap-3 border hover:bg-[#ecedfe]  h-fit bg-[#F5F0FE] border-[#7C3BED3D] rounded-sm p-5'>
-                    <p className='text-[20px] text-center  text-[#212227] font-bold'>{item.subnectname}</p>
-                    <p className='text-[12px] font-normal text-white bg-[#320D6D] border w-fit px-2 py-1 border-[#7C3BED3D rounded-sm' >View All</p>
+  // ✅ Backend API
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-                </div>
-                  <div className="flex flex-col gap-5">
-                            {item.class10?.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="group flex items-center gap-2 text-[14px] hover:bg-[#320D6D] hover:text-white font-semibold text-[#212227] justify-between border border-[#212227] rounded-sm px-4 py-1"
-                                >
-                                    <p>{item.id}</p>
+  // 🔹 Fetch API Data
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
 
-                                    <span className="flex-1 h-0.5 bg-[#212227] group-hover:bg-white"></span>
+        const res = await fetch(`${API_BASE_URL}/api/questionpapers`);
+        if (!res.ok) throw new Error("Network response was not ok");
 
-                                    <p>{item.classname}</p>
+        const json = await res.json();
+        setData(json.data || []);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-                                    <span className="flex-1 h-0.5 bg-[#212227] group-hover:bg-white"></span>
+    fetchData();
+  }, [API_BASE_URL]);
 
-                                    <p>{item.subject}</p>
+  // 🔹 Filtered Data
+ const filteredData = data.filter((item) => {
+  // Convert everything to lowercase for case-insensitive search
+  const searchLower = search.toLowerCase();
 
-                                    <span className="flex-1 h-0.5 bg-[#212227] group-hover:bg-white"></span>
+  const matchesSearch =
+    item.class_name.toLowerCase().includes(searchLower) ||
+    item.subject_name.toLowerCase().includes(searchLower) ||
+    String(new Date(item.year).getFullYear()).includes(searchLower);
 
-                                    <p>{item.year}</p>
-                                </div>
-                            ))}
-                        </div>
-             </div>
-            ))}
+  const matchesFilter = statusFilter === "all" || item.subject_name === statusFilter;
 
+  return matchesSearch && matchesFilter;
+});
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <div className="w-[90%] flex flex-col gap-5 mx-auto">
+      {/* Search + Filter */}
+      <div className="flex border border-[#3db7c7] overflow-x-auto rounded-sm p-5 items-center gap-5">
+        <div className="relative flex-1">
+          <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5" />
+          <input
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="md:w-full w-44 pl-10 pr-4 py-2 border border-[#3db7c7] text-black rounded-md text-sm"
+          />
         </div>
-    );
-}
+
+        <Select value={statusFilter} onValueChange={(value) => setStatusFilter(value)}>
+          <SelectTrigger className="w-40 border border-[#3db7c7]">
+            <SelectValue placeholder="All Subject" />
+          </SelectTrigger>
+
+          <SelectContent>
+            <SelectGroup>
+              <SelectItem value="all">All Subject</SelectItem>
+              <SelectItem value="English">English</SelectItem>
+              <SelectItem value="Hindi">Hindi</SelectItem>
+              <SelectItem value="Mathematics">Mathematics</SelectItem>
+              <SelectItem value="Science">Science</SelectItem>
+              <SelectItem value="Social Science">Social Science</SelectItem>
+              <SelectItem value="Physics">Physics</SelectItem>
+              <SelectItem value="Chemistry">Chemistry</SelectItem>
+              <SelectItem value="Biology">Biology</SelectItem>
+              <SelectItem value="Computer Science">Computer Science</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Cards */}
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+  {filteredData.length > 0 ? (
+    filteredData.map((item) => (
+      <div
+        key={item.id}
+        className="border shadow-xl flex flex-col gap-0.5 p-5 rounded-sm bg-[#F5F0FE] border-[#7C3BED3D]"
+      >
+        <div className="flex justify-between">
+          <p className="text-[14px] md:text-[18px] font-bold text-[#212227]">Class</p>
+          <p className="text-[14px] md:text-[18px] font-bold text-[#212227]">{item.class_name}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">Subject</p>
+          <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">{item.subject_name}</p>
+        </div>
+        <div className="flex justify-between">
+          <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">Year</p>
+          <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">{new Date(item.year).getFullYear()}</p>
+        </div>
+
+        {/* Buttons */}
+        <div className="flex justify-between w-full gap-2 mt-2">
+          <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">
+            {new Date(item.created_at)
+              .toLocaleDateString("en-CA", {
+                day: "2-digit",
+                year: "numeric",
+                month: "2-digit",
+              })
+              .replace(/-/g, ". ")}
+          </p>
+
+          {/* View PDF in new tab */}
+          <button
+            className="bg-[#3db7c7] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
+            onClick={() => window.open(`${API_BASE_URL}${item.file_url}`, "_blank")}
+          >
+            View PDF
+          </button>
+        </div>
+      </div>
+    ))
+  ) : (
+    <p className="text-center col-span-full text-red-500 font-bold text-lg">
+      No Data Now
+    </p>
+  )}
+</div>
+
+    </div>
+  );
+};
 
 export default Class10Question;
