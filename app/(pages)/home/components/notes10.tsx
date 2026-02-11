@@ -117,7 +117,7 @@ console.log("jeson",json10,json12)
 
 
                                     <button className="relative text-[14px] cursor-pointer text-[#212227] font-medium px-3 py-1 rounded-xl bg-linear-to-r from-white to-[#3db7c7] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                                        View All  🚀
+                                        View All  ✨
                                     </button>
 
 

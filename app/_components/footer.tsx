@@ -7,7 +7,7 @@ const Footer = () => {
               <p className="text-[20px] md:text-[24px] font-bold text-white text-center md:text-left">
           BiharZen Study
         </p>
-
+<p className='text-[16px] font-normal text-[#6D6E67]'>MCQs, notes & past papers in one place</p>
         </div>
 
       </div>
