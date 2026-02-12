@@ -26,7 +26,7 @@ export default function SubjectPage() {
   const [data, setData] = useState<SubjectMCQType[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+console.log(data,"subject")
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
   // 🔹 Fetch API Data
@@ -61,10 +61,10 @@ export default function SubjectPage() {
   }, [API_BASE_URL]);
 
   return (
-    <div className=" bg-[#d5fff3] pb-20  py-20 flex flex-col justify-center items-center gap-6 ">
+    <div className=" bg-[#effcf8]   py-20 flex flex-col justify-center items-center gap-6 ">
       <div>
-        <h1 className="text-2xl font-bold  text-[#212227] mt-6">Choose Your Subject and </h1>
-        <h1 className="text-2xl font-bold text-center mb-6 text-[#212227] ">Test Your Knowledge</h1>
+        <h1 className="text-[30px] font-bold  text-[#6D6E67] ">Choose Your Subject and </h1>
+        <h1 className="text-[30px] font-bold text-center mb-6 text-[#6D6E67] ">Test Your Knowledge</h1>
       </div>
 
       {loading && <p className="text-white">Loading...</p>}
@@ -84,7 +84,7 @@ export default function SubjectPage() {
             <p>{s.mcqs.length} Questions</p></div>
             
             
-<p className="text-center text-green-600 text-[14px] font-semibold">Get Started</p>
+<p className="text-center text-green-600 text-[14px] font-semibold">Start Quiz</p>
           </Link>
         ))}
       </div>

@@ -36,5 +36,5 @@ export const subjectMCQData: SubjectMCQType[] = [
 
 
 export const footer=[
-  {headinng:""}
+  {headinng:"What’s Inside" , subheading:[{id:1, name:"Question Papers" ,ontion:[{class:"Class 10th"}, {class:"Class 12th"}]},{id:1, name:"Notes & Solutions"  ,ontion:[{class:"Class 10th"}, {class:"Class 12th"}]},{id:1, name:"MCQ"}]}
 ]

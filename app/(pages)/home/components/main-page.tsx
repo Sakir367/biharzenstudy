@@ -40,7 +40,7 @@ const MainPage = () => {
 
 
     return (
-        <div className="flex flex-col  gap-5">
+        <div className="flex flex-col w-[90%] mx-auto gap-5">
             <div className="lg:w-[80%] w-full mx-auto flex flex-col lg:flex-row gap-8">
                 {dataActive.map((item: string, index: number) => (
                     <button

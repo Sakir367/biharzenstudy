@@ -76,17 +76,17 @@ console.log("jeson",json10,json12)
                                                 <p className="text-[14px] md:text-[18px] font-bold text-[#212227]">{item.class_name}</p>
                                             </div>
                                             <div className="flex justify-between">
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">Subject</p>
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">{item.subject_name}</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">Subject</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">{item.subject_name}</p>
                                             </div>
                                             <div className="flex justify-between">
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">Year</p>
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">{new Date(item.year).getFullYear()}</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">Year</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">{new Date(item.year).getFullYear()}</p>
                                             </div>
 
                                             {/* Buttons */}
                                             <div className="flex justify-between w-full gap-2 mt-2">
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">
                                                     {new Date(item.created_at).toLocaleDateString("en-CA", {
 
                                                         day: "2-digit",
@@ -116,8 +116,8 @@ console.log("jeson",json10,json12)
                                     <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Intermediate (Class 12)</p>
 
 
-                                    <button className="relative text-[14px] cursor-pointer text-[#212227] font-medium px-3 py-1 rounded-xl bg-linear-to-r from-white to-[#3db7c7] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                                        View All  ✨
+                                     <button className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                                      ✨  View All  
                                     </button>
 
 
@@ -135,17 +135,17 @@ console.log("jeson",json10,json12)
                                                 <p className="text-[14px] md:text-[18px] font-bold text-[#212227]">{item.class_name}</p>
                                             </div>
                                             <div className="flex justify-between">
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">Subject</p>
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">{item.subject_name}</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">Subject</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">{item.subject_name}</p>
                                             </div>
                                             <div className="flex justify-between">
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">Year</p>
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">{new Date(item.year).getFullYear()}</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">Year</p>
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">{new Date(item.year).getFullYear()}</p>
                                             </div>
 
                                             {/* Buttons */}
                                             <div className="flex justify-between w-full gap-2 mt-2">
-                                                <p className="text-[12px] md:text-[14px] text-[#212227] font-medium">
+                                                <p className="text-[12px] md:text-[14px] text-[#6D6E67] font-medium">
                                                     {new Date(item.created_at).toLocaleDateString("en-CA", {
 
                                                         day: "2-digit",

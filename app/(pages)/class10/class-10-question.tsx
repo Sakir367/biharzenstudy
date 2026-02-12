@@ -10,6 +10,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 import { SearchIcon } from "lucide-react";
 
 const Class10Question = () => {
@@ -18,6 +27,9 @@ const Class10Question = () => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 12;
+
 
   // ✅ Backend API
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -57,6 +69,11 @@ const Class10Question = () => {
 
   return matchesSearch && matchesFilter;
 });
+
+const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+const startIndex = (currentPage - 1) * itemsPerPage;
+const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -100,8 +117,8 @@ const Class10Question = () => {
 
       {/* Cards */}
    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-  {filteredData.length > 0 ? (
-    filteredData.map((item) => (
+  {currentData.length > 0 ? (
+    currentData.map((item) => (
       <div
         key={item.id}
         className="border shadow-xl flex flex-col gap-0.5 p-5 rounded-sm bg-[#F5F0FE] border-[#7C3BED3D]"
@@ -147,6 +164,56 @@ const Class10Question = () => {
     </p>
   )}
 </div>
+
+
+
+<Pagination>
+  <PaginationContent>
+    {/* Previous */}
+    <PaginationItem>
+      <PaginationPrevious
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          if (currentPage > 1) setCurrentPage(currentPage - 1);
+        }}
+        className="hover:bg-[#3db7c7] hover:text-white"
+      />
+    </PaginationItem>
+
+    {/* Page Numbers */}
+    {[...Array(totalPages)].map((_, index) => {
+      const page = index + 1;
+      return (
+        <PaginationItem key={page} >
+          <PaginationLink
+            href="#"
+            isActive={currentPage === page}
+            onClick={(e) => {
+              e.preventDefault();
+              setCurrentPage(page);
+            }}
+            className={`${currentPage === page ? "bg-[#3db7c7] text-white":""}`}
+          >
+            {page}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    })}
+
+    {/* Next */}
+    <PaginationItem>
+      <PaginationNext
+        href="#"
+        onClick={(e) => {
+          e.preventDefault();
+          if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+        }}
+          className=" hover:bg-[#3db7c7] hover:text-white"
+      />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
 
     </div>
   );
