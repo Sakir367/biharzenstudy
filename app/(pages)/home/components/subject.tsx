@@ -61,7 +61,7 @@ export default function SubjectPage() {
   }, [API_BASE_URL]);
 
   return (
-    <div className=" bg-white pb-20  py-20 flex flex-col justify-center items-center gap-6 ">
+    <div className=" bg-[#d5fff3] pb-20  py-20 flex flex-col justify-center items-center gap-6 ">
       <div>
         <h1 className="text-2xl font-bold  text-[#212227] mt-6">Choose Your Subject and </h1>
         <h1 className="text-2xl font-bold text-center mb-6 text-[#212227] ">Test Your Knowledge</h1>
@@ -75,13 +75,16 @@ export default function SubjectPage() {
           <Link
             key={s.id}
             href={`/mcq/${s.id}`}
-            className="bg-linear-to-r  from-[#3db7c7] to-[#2aa3b3] 
-              text-white px-10 py-3 text-[16px] font-semibold 
-              shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 flex  gap-1 rounded-xl cursor-pointer"
+            className="bg-white 
+              text-black px-10 border border-[#3db7c7] py-3 text-[16px] font-semibold 
+              shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300  flex flex-col gap-2 rounded-xl cursor-pointer"
           >
-            <p>✨ {s.subjectName}</p>
+          <div className="flex  gap-1">  <p>✨ {s.subjectName}</p>
             <p>{s.className}</p>
-            <p>{s.mcqs.length} Questions</p>
+            <p>{s.mcqs.length} Questions</p></div>
+            
+            
+<p className="text-center text-green-600 text-[14px] font-semibold">Get Started</p>
           </Link>
         ))}
       </div>
