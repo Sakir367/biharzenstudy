@@ -37,12 +37,27 @@ const Footer = () => {
 
       <div className='flex flex-col gap-3 '>
         <p className="text-[16px] md:text-[22px] font-bold text-white  md:text-left">Developed by : <span className='text-[#DC2626]'>Sakir Ali</span> </p>
-        <p className='text-[14px] lg:text-[16px] font-normal text-[#d1e460]'>Email : support@yourdomain.com</p>
+  <p className='text-[14px] lg:text-[16px] font-normal text-[#d1e460]'>
+  Email : 
+  <a href="mailto:sakirali25599@gmail.com" className="underline ml-1">
+    sakirali25599@gmail.com
+  </a>
+</p>
+
 
 <div className='flex gap-1 items-center'>
   <FaInstagram className='text-pink-500 text-2xl' />
-  <p className='text-[12px] lg:text-[15px] font-normal text-[#c3c5b8]'>sakir.367</p>
+
+  <a
+    href="https://instagram.com/sakir.367"
+    target="_blank"
+    rel="noopener noreferrer"
+    className='text-[12px] lg:text-[15px] font-normal text-[#c3c5b8] hover:text-white transition'
+  >
+    sakir.367
+  </a>
 </div>
+
       </div>
       </div>
     
