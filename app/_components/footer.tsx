@@ -11,7 +11,7 @@ const Footer = () => {
         <p className="text-[20px] md:text-[24px] font-bold text-white  md:text-left">
       <span className='text-[#DC2626]'>Bihar</span>Notes  Hub
         </p>
-        <p className='text-[16px] mt-2 font-normal text-[#c3c5b8]'>MCQs, notes & past papers in one place</p>
+        <p className='text-[14px] lg:text-[16px] mt-2 font-normal text-[#c3c5b8]'>MCQs, notes & past papers in one place</p>
       </div>
       <div className='flex flex-col  gap-5'>
         {footer.map((item, index) => (
@@ -20,7 +20,7 @@ const Footer = () => {
             <div className='grid grid-cols-2 lg:justify-center  gap-3 lg:grid-cols-3'>
               {item.subheading.map((item, index) => (
                 <div key={index}>
-                  <p className='text-14 lg:text-[16px] font-normal text-[#d1e460]'>{item.name}</p>
+                  <p className='text-[14px] lg:text-[16px] font-normal text-[#d1e460]'>{item.name}</p>
                   <div>
                     {item.ontion?.map((item,index)=>(
                       <div key={index}>
@@ -37,7 +37,7 @@ const Footer = () => {
 
       <div className='flex flex-col gap-3 '>
         <p className="text-[16px] md:text-[22px] font-bold text-white  md:text-left">Developed by : <span className='text-[#DC2626]'>Sakir Ali</span> </p>
-        <p className='text-14 lg:text-[16px] font-normal text-[#d1e460]'>Email : support@yourdomain.com</p>
+        <p className='text-[14px] lg:text-[16px] font-normal text-[#d1e460]'>Email : support@yourdomain.com</p>
 
 <div className='flex gap-1 items-center'>
   <FaInstagram className='text-pink-500 text-2xl' />
@@ -48,7 +48,7 @@ const Footer = () => {
     
    </div>
      <div className='pb-5'>
-        <p className=' py-3  border-b border-[#c3c5b8] text-[#c3c5b8] text-[14px] font-normal text-center'>© 2026 Bihar Board Notes | Developed by Sakir Ali</p>
+        <p className=' py-3  border-b border-[#c3c5b8] text-[#c3c5b8] text-[12px] lg:text-[14px] font-normal text-center'>© 2026 Bihar Board Notes | Developed by Sakir Ali</p>
       </div>
      
     </div>

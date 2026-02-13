@@ -61,10 +61,10 @@ console.log(data,"subject")
   }, [API_BASE_URL]);
 
   return (
-    <div className=" bg-[#effcf8]   py-20 flex flex-col justify-center items-center gap-6 ">
+    <div className=" bg-[#effcf8] px-5  py-20 flex flex-col justify-center items-center gap-6 ">
       <div>
-        <h1 className="text-[30px] font-bold  text-[#6D6E67] ">Choose Your Subject and </h1>
-        <h1 className="text-[30px] font-bold text-center mb-6 text-[#6D6E67] ">Test Your Knowledge</h1>
+        <h1 className="text-[22px] lg:text-[30px] font-bold  text-[#6D6E67] ">Choose Your Subject and </h1>
+        <h1 className="text-[22px] lg:text-[30px] font-bold text-center mb-6 text-[#6D6E67] ">Test Your Knowledge</h1>
       </div>
 
       {loading && <p className="text-white">Loading...</p>}
@@ -76,7 +76,7 @@ console.log(data,"subject")
             key={s.id}
             href={`/mcq/${s.id}`}
             className="bg-white 
-              text-black px-10 border border-[#3db7c7] py-3 text-[16px] font-semibold 
+              text-black px-5 lg:px-10 border border-[#3db7c7] py-3 text-[16px] font-semibold 
               shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300  flex flex-col gap-2 rounded-xl cursor-pointer"
           >
           <div className="flex  gap-1">  <p>✨ {s.subjectName}</p>

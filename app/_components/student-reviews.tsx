@@ -33,7 +33,7 @@ const StudentReviews = () => {
     const visibleMessages = messages.slice(current, current + itemsPerSlide);
 
     return (
-        <div className="bg-[#F0F0F0] my-4  w-full mx-auto ">
+        <div className="bg-[#F0F0F0] my-4  w-full mx-auto px-5">
             <div className=' max-w-390 lg:w-[95%] mx-auto'>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-end gap-5">
                     <div className="hidden xl:block"></div>
@@ -75,7 +75,7 @@ const StudentReviews = () => {
                             <div className="group-hover:blur-sm transition duration-300">
                                 <FaQuoteLeft className="text-4xl text-[#3db7c7]" />
 
-                                <p className="text-[16px] line-clamp-2  font-normal text-[#6D6E67] leading-relaxed">
+                                <p className="text-[14px] mt-1 lg:text-[16px] line-clamp-2  font-normal text-[#6D6E67] leading-relaxed">
                                     {item.chat}
                                 </p>
 
@@ -90,10 +90,10 @@ const StudentReviews = () => {
                                         />
 
                                         <div>
-                                            <p className="text-[#414244] text-[20px] font-normal">
+                                            <p className="text-[#414244] text-[16px] lg:text-[20px] font-normal">
                                                 {item.name}
                                             </p>
-                                            <p className="text-[16px] font-normal text-[#6D6E67]">
+                                            <p className="text-[12px] lg:text-[16px] font-normal text-[#6D6E67]">
                                                 {item.clinet}
                                             </p>
                                         </div>

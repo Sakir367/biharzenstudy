@@ -8,7 +8,7 @@ import SubjectPage from './components/subject';
 const HomePage = () => {
     
     return (
-        <div className='max-w-390 flex flex-col gap-5 pb-20 w-full mx-auto '>
+        <div className='max-w-390 bg-[#EEEEEE] flex flex-col gap-5 pb-20 w-full mx-auto '>
 <div className='bg-[#effcf8]'>
                       <div className="overflow-hidden w-[90%] mx-auto  py-10 ">
   <p

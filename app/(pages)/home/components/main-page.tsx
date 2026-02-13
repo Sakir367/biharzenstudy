@@ -20,22 +20,7 @@ const dataActive: string[] = ["Question Papers", "Notes & Solutions"];
 
 const MainPage = () => {
     const [active, setActive] = useState<string | null>("Question Papers");
-    const [data, setData] = useState<QuestionPaper[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const [openPdf, setOpenPdf] = useState<string | null>(null);
-    const [filterClass, setFilterClass] = useState("10th");
-
-    const filteredData = data.filter(
-        (item) => item.class_name === `${filterClass}`
-    );
-
-    // Filter data for Class 10
-    const class10Data = data.filter(item => item.class_name === "10th");
-
-    // Filter data for Class 12
-    const class12Data = data.filter(item => item.class_name === "12th");
-
+  
 
 
 

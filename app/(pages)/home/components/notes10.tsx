@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface QuestionPaper {
@@ -57,9 +58,10 @@ console.log("jeson",json10,json12)
                                     <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Question Papers Matric (Class 10)</p>
 
 
-                                    <button className="relative text-[14px] cursor-pointer text-[#212227] font-medium px-3 py-1 rounded-xl bg-linear-to-r from-white to-[#3db7c7] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                                        View All  🚀
-                                    </button>
+                                       <Link href={"/notes-class10"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                                      ✨  View All  
+                                    </Link>
+
 
 
 
@@ -116,9 +118,9 @@ console.log("jeson",json10,json12)
                                     <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Intermediate (Class 12)</p>
 
 
-                                     <button className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                                    <Link href={"/notes-class12"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
                                       ✨  View All  
-                                    </button>
+                                    </Link>
 
 
 
