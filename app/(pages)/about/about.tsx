@@ -2,7 +2,7 @@
 
 const About = () => {
     return (
-        <div className="max-w-390 mx-auto w-full lg:w-[90%] flex flex-col gap-5 py-10 px-5 bg-white lg:p-5">
+        <div className="max-w-390 mx-auto w-full lg:w-[90%] flex flex-col gap-5 py-10 px-5 bg-white lg:p-5 lg:py-10">
            <p  className="text-[30px] font-bold text-center  text-[#6D6E67] ">About Us</p>
 
            <p  className="text-[14px] lg:text-[18px] font-normal mt-4  text-[#6D6E67] ">This platform provides Previous Year Question Papers, Notes, and MCQ Tests to help students prepare for exams easily and effectively</p> 

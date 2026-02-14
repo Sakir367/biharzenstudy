@@ -20,6 +20,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 import { SearchIcon } from "lucide-react";
+import ProfessionalLoader from "@/app/_components/professiona-loader";
 
 const Class10Notes = () => {
   const [search, setSearch] = useState("");
@@ -75,8 +76,20 @@ const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 const startIndex = (currentPage - 1) * itemsPerPage;
 const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+ if (loading) {
+    return (
+  <ProfessionalLoader/>
+    );
+  }
+
+  // ✅ Error UI
+  if (error) {
+    return (
+      <div className="text-center text-red-500 mt-10">
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div className="w-[90%] flex flex-col gap-5 mx-auto">

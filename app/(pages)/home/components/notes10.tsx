@@ -1,4 +1,5 @@
 "use client"
+import ProfessionalLoader from "@/app/_components/professiona-loader";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -48,8 +49,20 @@ console.log("jeson",json10,json12)
   fetchData();
 }, []);
 
-            if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error: {error}</p>;
+         if (loading) {
+            return (
+          <ProfessionalLoader/>
+            );
+          }
+        
+          // ✅ Error UI
+          if (error) {
+            return (
+              <div className="text-center text-red-500 mt-10">
+                {error}
+              </div>
+            );
+          }
     return (
         <div>
              <div className="grid grid-cols-1  lg:grid-cols-2 gap-5 ">
