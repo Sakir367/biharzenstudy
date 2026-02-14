@@ -6,7 +6,7 @@ export default function ProfessionalLoader() {
         
         {/* Spinner */}
         <div className="flex justify-center mb-6">
-          <div className="w-12 h-12 border-4 border-gray-200 border-t-[#157e8b] rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-gray-200 border-t-[#004249] rounded-full animate-spin"></div>
         </div>
 
         {/* Title Skeleton */}

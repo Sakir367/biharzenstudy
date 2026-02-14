@@ -167,7 +167,7 @@ reset();
 
         <button
           type="submit"
-          className="bg-[#157e8b] cursor-pointer text-white py-2 px-4 rounded mt-3"
+          className="bg-[#004249] cursor-pointer text-white py-2 px-4 rounded mt-3"
         >
           Submit
         </button>
@@ -175,7 +175,7 @@ reset();
     </div>
 
      <img
-            className="w-full rounded-sm h-full object-cover bg-[#157e8b]"
+            className="w-full rounded-sm h-full object-cover bg-[#004249]"
             src="images/bglogo.png"
             alt="logo"
           />

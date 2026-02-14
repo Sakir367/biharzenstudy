@@ -18,7 +18,8 @@ const [data12, setData12] = useState<QuestionPaper[]>([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState<string | null>(null);
 
-const API_BASE_URL = "http://localhost:5000";
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 
 useEffect(() => {
   const fetchData = async () => {
@@ -26,8 +27,8 @@ useEffect(() => {
       setLoading(true);
 
       const [res10, res12] = await Promise.all([
-        fetch(`${API_BASE_URL}/api/notes/class10`),
-        fetch(`${API_BASE_URL}/api/notes/class12`)
+        fetch(`${apiUrl}/api/notes/class10`),
+        fetch(`${apiUrl}/api/notes/class12`)
       ]);
 
       if (!res10.ok || !res12.ok) {
@@ -71,8 +72,8 @@ console.log("jeson",json10,json12)
                                     <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Question Papers Matric (Class 10)</p>
 
 
-                                       <Link href={"/notes-class10"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                                      ✨  View All  
+                                       <Link href={"/notes-class10"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#004249] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                                       View All   ✨
                                     </Link>
 
 
@@ -80,7 +81,7 @@ console.log("jeson",json10,json12)
 
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5">
                                     {data?.map((item) => (
                                         <div
                                             key={item.id}
@@ -112,9 +113,9 @@ console.log("jeson",json10,json12)
 
                                                 {/* View PDF in new tab */}
                                                 <button
-                                                    className="bg-[#3db7c7] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
+                                                    className="bg-[#004249] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
                                                     onClick={() =>
-                                                        window.open(`${API_BASE_URL}${item.file_url}`, "blank")
+                                                        window.open(`${apiUrl}${item.file_url}`, "blank")
                                                     }
                                                 >
                                                     View PDF
@@ -131,15 +132,15 @@ console.log("jeson",json10,json12)
                                     <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Intermediate (Class 12)</p>
 
 
-                                    <Link href={"/notes-class12"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                                      ✨  View All  
+                                    <Link href={"/notes-class12"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#004249] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                                        View All  ✨
                                     </Link>
 
 
 
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-5">
                                     {data12?.map((item) => (
                                         <div
                                             key={item.id}
@@ -171,9 +172,9 @@ console.log("jeson",json10,json12)
 
                                                 {/* View PDF in new tab */}
                                                 <button
-                                                    className="bg-[#3db7c7] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
+                                                    className="bg-[#004249] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
                                                     onClick={() =>
-                                                        window.open(`${API_BASE_URL}${item.file_url}`, "blank")
+                                                        window.open(`${apiUrl}${item.file_url}`, "blank")
                                                     }
                                                 >
                                                     View PDF

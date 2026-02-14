@@ -25,15 +25,15 @@ const MainPage = () => {
 
 
     return (
-        <div className="flex flex-col w-[90%] mx-auto gap-5">
-            <div className="lg:w-[80%] w-full mx-auto flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col w-full lg:w-[90%] mx-auto gap-5">
+            <div className="lg:w-[80%] w-[90%] mx-auto flex flex-col lg:flex-row gap-8">
                 {dataActive.map((item: string, index: number) => (
                     <button
                         key={index}
                         onClick={() => setActive(item)}
                         className={`${active === item
-                                ? "bg-[#3db7c7] text-white"
-                                : "bg-white text-[#3db7c7] border border-[#3db7c7]"
+                                ? "bg-[#004249] text-white"
+                                : "bg-white text-[#004249] border border-[#004249]"
                             } shadow cursor-pointer font-bold text-[22px] py-3 w-full rounded-lg transition-all duration-300`}
                     >
                         {item}

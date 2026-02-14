@@ -140,7 +140,7 @@
   animation: marquee 20s linear infinite;
 }
 .marquee-text {
-  animation: marquee 40s linear infinite;
+  animation: marquee 20s linear infinite;
   will-change: transform;
 }
 

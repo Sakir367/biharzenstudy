@@ -91,7 +91,7 @@ const CommentView = () => {
         </div>
 
         <img
-          className="w-full rounded-sm h-full object-cover bg-[#157e8b]"
+          className="w-full rounded-sm h-full object-cover bg-[#004249]"
           src="/images/bglogo.png"
           alt="logo"
         />

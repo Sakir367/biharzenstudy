@@ -81,7 +81,7 @@ const StudentReviews = () => {
 
                     </div>
                     <div className="flex h-fit justify-center xl:justify-end pb-10">
-                        <button onClick={()=> router.push("/comment")} className="cursor-pointer bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] 
+                        <button onClick={()=> router.push("/comment")} className="cursor-pointer bg-linear-to-r from-[#004249] to-[#2aa3b3] 
     text-white px-10 py-3 rounded-full text-[16px] font-semibold 
     shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
                             ✨ Share Your Experience
@@ -99,18 +99,18 @@ const StudentReviews = () => {
 
                         <div
                             key={index}
-                            className="group relative flex flex-col border border-[#3db7c7] rounded-sm gap-6 bg-white p-6 shadow-md hover:shadow-xl transition-all overflow-hidden"
+                            className="group relative flex flex-col border border-[#004249] rounded-sm gap-6 bg-white p-6 shadow-md hover:shadow-xl transition-all overflow-hidden"
                         >
                             {/* Blur Overlay */}
                             <div className="absolute inset-0  bg-white/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition duration-300 z-10 flex items-center justify-center">
-                                <Link href={`comment/${item.id}`}  className="bg-[#3db7c7] cursor-pointer text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:scale-105 transition">
+                                <Link href={`comment/${item.id}`}  className="bg-[#004249] cursor-pointer text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:scale-105 transition">
                                     View Comment
                                 </Link>
                             </div>
 
                             {/* Card Content */}
                             <div className="group-hover:blur-sm transition duration-300">
-                                <FaQuoteLeft className="text-4xl text-[#3db7c7]" />
+                                <FaQuoteLeft className="text-4xl text-[#004249]" />
 
                                 <p className="text-[14px] mt-1 lg:text-[16px] line-clamp-2  font-normal text-[#6D6E67] leading-relaxed">
                                     {item.chat}
@@ -144,7 +144,7 @@ const StudentReviews = () => {
                                                 key={starIndex}
                                                 className={
                                                     starIndex <= Number(item.star)
-                                                        ? "text-[#3db7c7]"
+                                                        ? "text-[#004249]"
                                                         : "text-yellow-400"
                                                 }
                                             />
@@ -167,7 +167,7 @@ const StudentReviews = () => {
                                     key={index}
                                     onClick={() => setCurrent(index * itemsPerSlide)}
                                     className={`w-3 h-3 rounded-full cursor-pointer ${current / itemsPerSlide === index
-                                        ? "bg-[#3db7c7]"
+                                        ? "bg-[#004249]"
                                         : "bg-gray-300"
                                         }`}
                                 ></span>

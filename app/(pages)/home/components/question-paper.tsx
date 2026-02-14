@@ -19,7 +19,8 @@ const QuestionAll = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const API_BASE_URL = "http://localhost:5000";
+    // const API_BASE_URL = "http://localhost:5000"
+  const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,8 +28,8 @@ const QuestionAll = () => {
                 setLoading(true);
 
                 const [res10, res12] = await Promise.all([
-                    fetch(`${API_BASE_URL}/api/questionpapers`),
-                    fetch(`${API_BASE_URL}/api/class12`)
+                    fetch(`${apiUrl}/api/questionpapers`),
+                    fetch(`${apiUrl}/api/class12`)
                 ]);
 
                 if (!res10.ok || !res12.ok) {
@@ -65,14 +66,14 @@ const QuestionAll = () => {
   }
     return (
         <div>
-            <div className="grid grid-cols-1  lg:grid-cols-2 gap-5 ">
+            <div className="grid grid-cols-1  xl:grid-cols-2 gap-5 ">
                 <div className="bg-white   shadow p-5 flex flex-col gap-5">
                     <div className="flex justify-between items-center ">
                         <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Question Papers Matric (Class 10)</p>
 
 
-                        <Link href={"/class10"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                            ✨  View All
+                        <Link href={"/class10"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#004249] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                             View All  ✨
                         </Link>
 
 
@@ -111,9 +112,9 @@ const QuestionAll = () => {
 
                                     {/* View PDF in new tab */}
                                     <button
-                                        className="bg-[#3db7c7] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
+                                        className="bg-[#004249] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
                                         onClick={() =>
-                                            window.open(`${API_BASE_URL}${item.file_url}`, "blank")
+                                            window.open(`${apiUrl}${item.file_url}`, "blank")
                                         }
                                     >
                                         View PDF
@@ -129,8 +130,8 @@ const QuestionAll = () => {
                     <div className="flex justify-between items-center">
                         <p className="text-[18px] md:text-[22px]  text-[#212227]   font-bold">Question Papers Intermediate (Class 12)</p>
 
-                        <Link href={"/class12"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
-                            ✨  View All
+                        <Link href={"/class12"} className="relative text-nowrap text-[14px] cursor-pointer text-white font-medium px-3 py-1 rounded-xl   bg-linear-to-r from-[#004249] to-[#2aa3b3] shadow-lg hover:scale-105 transition-all duration-300 animate-glow">
+                            View All   ✨
                         </Link>
 
 
@@ -170,9 +171,9 @@ const QuestionAll = () => {
 
                                     {/* View PDF in new tab */}
                                     <button
-                                        className="bg-[#3db7c7] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
+                                        className="bg-[#004249] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
                                         onClick={() =>
-                                            window.open(`${API_BASE_URL}${item.file_url}`, "blank")
+                                            window.open(`${apiUrl}${item.file_url}`, "blank")
                                         }
                                     >
                                         View PDF

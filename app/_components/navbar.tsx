@@ -16,8 +16,8 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full bg-[#3db7c7]">
-      <div className="max-w-390 w-[95%] mx-auto py-4 flex flex-col xl:flex-row lg:justify-between lg:items-center gap-4">
+    <div className="w-full bg-[#004249]">
+      <div className="max-w-390 w-[95%] mx-auto py-6 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-4">
 
         {/* Logo */}
         <button onClick={() => router.push("/home")} className="text-[20px] cursor-pointer text-nowrap md:text-[24px] font-bold text-white text-center md:text-left">
@@ -26,10 +26,10 @@ const Navbar = () => {
  
 
         {/* Select Section */}
-        <div className="flex flex-col xl:flex-row gap-3 w-full lg:w-auto">
+        <div className="flex flex-col lg:flex-row gap-3 w-full lg:w-auto">
  
 
-<Button onClick={() => router.push("/about")} className="bg-[#3db7c7] hover:bg-[#3db7c7] cursor-pointer border border-white">About</Button>
+<Button onClick={() => router.push("/about")} className="bg-[#004249] hover:bg-[#004249] cursor-pointer border border-white">About</Button>
           <Select  onValueChange={(value) => router.push(value)}>
            <SelectTrigger className="w-full lg:w-auto cursor-pointer text-white data-placeholder:text-white">
   <SelectValue placeholder="Question Papers" />
@@ -43,21 +43,21 @@ const Navbar = () => {
             </SelectContent>
           </Select>
 
-          <Select>
+          <Select onValueChange={(value) => router.push(value)}>
             <SelectTrigger className="w-full cursor-pointer lg:w-auto text-white">
               <SelectValue placeholder="Notes & Solutions" />
             </SelectTrigger>
             <SelectContent className="bg-white">
               <SelectGroup>
-                <SelectItem className="cursor-pointer" value="Class-10">Class-10</SelectItem>
-                <SelectItem className="cursor-pointer" value="Class-12">Class-12</SelectItem>
+                <SelectItem className="cursor-pointer" value="/notes-class10">Class-10</SelectItem>
+                <SelectItem className="cursor-pointer" value="notes-class12">Class-12</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>
 
        
 
-<Button onClick={() => router.push("/mcq")} className="bg-[#3db7c7] hover:bg-[#3db7c7] cursor-pointer border border-white">MCQ</Button>
+<Button onClick={() => router.push("/mcq")} className="bg-[#004249] hover:bg-[#004249] cursor-pointer border border-white">MCQ</Button>
         </div>
       </div>
     </div>

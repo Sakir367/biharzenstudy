@@ -28,7 +28,7 @@ const Class10Notes = () => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-const [currentPage, setCurrentPage] = useState(1);
+const [currentPage, setCurrentPage] = useState<any>(1);
 const itemsPerPage = 12;
 
 
@@ -73,6 +73,24 @@ const itemsPerPage = 12;
 
 const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
+const getPageNumbers = () => {
+  const pages = [];
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 ||
+      i === totalPages ||
+      (i >= currentPage - 1 && i <= currentPage + 1)
+    ) {
+      pages.push(i);
+    } else if (i === currentPage - 2 || i === currentPage + 2) {
+      pages.push("...");
+    }
+  }
+
+  return pages;
+};  
+
 const startIndex = (currentPage - 1) * itemsPerPage;
 const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
@@ -94,7 +112,7 @@ const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
   return (
     <div className="w-[90%] flex flex-col gap-5 mx-auto">
       {/* Search + Filter */}
-      <div className="flex border border-[#3db7c7] overflow-x-auto rounded-sm p-5 items-center gap-5">
+      <div className="flex border border-[#004249] overflow-x-auto rounded-sm p-5 items-center gap-5">
         <div className="relative flex-1">
           <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5" />
           <input
@@ -102,12 +120,12 @@ const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
             placeholder="Search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="md:w-full w-44 pl-10 pr-4 py-2 border border-[#3db7c7] text-black rounded-md text-sm"
+            className="md:w-full w-44 pl-10 pr-4 py-2 border border-[#004249] text-black rounded-md text-sm"
           />
         </div>
 
         <Select value={statusFilter} onValueChange={(value) => setStatusFilter(value)}>
-          <SelectTrigger className="w-40 border border-[#3db7c7]">
+          <SelectTrigger className="w-40 border border-[#004249]">
             <SelectValue placeholder="All Subject" />
           </SelectTrigger>
 
@@ -163,7 +181,7 @@ const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
           {/* View PDF in new tab */}
           <button
-            className="bg-[#3db7c7] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
+            className="bg-[#004249] cursor-pointer text-white text-[14px] font-normal px-3 py-1 rounded hover:bg-[#63a6d6]/80"
             onClick={() => window.open(`${API_BASE_URL}${item.file_url}`, "_blank")}
           >
             View PDF
@@ -190,29 +208,31 @@ const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
           e.preventDefault();
           if (currentPage > 1) setCurrentPage(currentPage - 1);
         }}
-        className="hover:bg-[#3db7c7] hover:text-white"
+        className="hover:bg-[#004249] hover:text-white"
       />
     </PaginationItem>
 
-    {/* Page Numbers */}
-    {[...Array(totalPages)].map((_, index) => {
-      const page = index + 1;
-      return (
-        <PaginationItem key={page} >
-          <PaginationLink
-            href="#"
-            isActive={currentPage === page}
-            onClick={(e) => {
-              e.preventDefault();
-              setCurrentPage(page);
-            }}
-            className={`${currentPage === page ? "bg-[#3db7c7] text-white":""}`}
-          >
-            {page}
-          </PaginationLink>
-        </PaginationItem>
-      );
-    })}
+  
+{getPageNumbers().map((page, index) => (
+  <PaginationItem key={index}>
+    {page === "..." ? (
+      <PaginationEllipsis />
+    ) : (
+      <PaginationLink
+        href="#"
+        isActive={currentPage === page}
+        onClick={(e) => {
+          e.preventDefault();
+          setCurrentPage(page);
+        }}
+        className={`${currentPage === page ? "bg-[#004249] text-white" : ""}`}
+      >
+        {page}
+      </PaginationLink>
+    )}
+  </PaginationItem>
+))}
+
 
     {/* Next */}
     <PaginationItem>
@@ -222,7 +242,7 @@ const currentData = filteredData.slice(startIndex, startIndex + itemsPerPage);
           e.preventDefault();
           if (currentPage < totalPages) setCurrentPage(currentPage + 1);
         }}
-          className=" hover:bg-[#3db7c7] hover:text-white"
+          className=" hover:bg-[#004249] hover:text-white"
       />
     </PaginationItem>
   </PaginationContent>

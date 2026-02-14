@@ -28,7 +28,7 @@ export default function SubjectPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   console.log(data, "subject")
-  const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   // 🔹 Fetch API Data
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function SubjectPage() {
       setError("");
 
       try {
-        const res = await fetch(`${API_BASE_URL}/api/mcq`);
+        const res = await fetch(`${apiUrl}/api/mcq`);
         if (!res.ok) throw new Error("Network response was not ok");
 
         const json = await res.json();
@@ -59,7 +59,7 @@ export default function SubjectPage() {
     };
 
     fetchData();
-  }, [API_BASE_URL]);
+  }, [apiUrl]);
 
 
    if (loading) {
@@ -79,17 +79,17 @@ export default function SubjectPage() {
 
   return (
     <div className=" bg-[#effcf8] px-5  py-20 flex flex-col justify-center items-center gap-6 ">
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-3  w-full">
+      <div className="grid grid-cols-1 gap-5 xl:grid-cols-3  w-full">
         <div>
 
         </div>
         <div className="justify-center items-center ">
-          <h1 className="text-[22px] lg:text-[30px] font-bold  text-center  text-[#6D6E67] ">Choose Your Subject and </h1>
-          <h1 className="text-[22px] lg:text-[30px] font-bold text-center mb-6 text-[#6D6E67] ">Test Your Knowledge</h1>
+          <h1 className="text-[22px] lg:text-[30px] font-bold  text-center  text-[#53544f] ">Choose Your Subject and </h1>
+          <h1 className="text-[22px] lg:text-[30px] font-bold text-center mb-6 text-[#53544f] ">Test Your Knowledge</h1>
         </div>
 
         <div className="flex h-fit justify-center xl:justify-end pb-10">
-          <button onClick={() => router.push("/mcq")} className="cursor-pointer bg-linear-to-r from-[#3db7c7] to-[#2aa3b3] 
+          <button onClick={() => router.push("/mcq")} className="cursor-pointer bg-linear-to-r from-[#004249] to-[#2aa3b3] 
     text-white px-10 py-3 rounded-full text-[16px] font-semibold 
     shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300">
             ✨   View All Test
@@ -106,7 +106,7 @@ export default function SubjectPage() {
             key={s.id}
             href={`/mcq/${s.id}`}
             className="bg-white 
-              text-black px-5 lg:px-10 border border-[#3db7c7] py-3 text-[16px] font-semibold 
+              text-black px-5 lg:px-10 border border-[#004249] py-3 text-[16px] font-semibold 
               shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300  flex flex-col gap-2 rounded-xl cursor-pointer"
           >
             <div className="flex  gap-1">  <p>✨ {s.subjectName}</p>
@@ -114,7 +114,7 @@ export default function SubjectPage() {
               <p>{s.mcqs.length} Questions</p></div>
 
 
-            <p className="text-center text-green-600 text-[14px] font-semibold">Start Quiz</p>
+            <p className="text-center text-[#004249] text-[14px] font-semibold">Start Quiz</p>
           </Link>
         ))}
       </div>

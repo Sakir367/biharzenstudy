@@ -120,7 +120,7 @@ export default function MCQPage() {
         {!submitted && mcqData.length > 0 && (
           <div className="flex justify-center mt-6">
             <button
-              className="rounded-2xl px-8 py-3 text-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+              className="rounded-2xl px-8 py-3 text-lg bg-[#004249] text-white hover:bg-[#004249] transition"
               onClick={handleSubmit}
             >
               Submit Test
